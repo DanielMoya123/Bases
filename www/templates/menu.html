@@ -1,0 +1,52 @@
+<ion-nav-view cache-view="false"></ion-nav-view>
+ 
+         <ion-side-menus>
+
+            <ion-side-menu-content >
+                
+                <ion-nav-bar class="dark-red">  
+
+
+                    <ion-nav-buttons side="left">
+                        <button class="button button-icon button-clear ion-navicon" style="color: #FFFFFF" menu-toggle="left">  </button>
+                    </ion-nav-buttons>
+                </ion-nav-bar>
+
+                <ion-nav-view name="menuContent"></ion-nav-view>
+ 
+            </ion-side-menu-content>
+
+
+            <ion-side-menu side="left" >
+ 
+                <ion-header-bar class="dark-blue"> 
+                 <h1 class="title white">Menu</h1>
+                </ion-header-bar>
+                
+                <ion-content>
+                
+                <ion-list>
+                    <ion-item>
+                        <h2>{{login.username}}</h2>
+                    </ion-item>
+                    <ion-item  menu-close class="item item-icon-left" href="#/menu/home"> 
+                        <i class="icon ion-settings dark-blue-color"> </i>
+                        Home
+                    </ion-item>
+                    <ion-item class="element" menu-close href="#/cart">
+                        <img class="cart" src="img/shopping_cart.png">
+                        <h2 class=cart-name>Cart</h2>
+                    </ion-item>
+                    <ion-item menu-close class="item item-icon-left" href="#/about" >
+                        <i class="icon ion-information-circled dark-blue-color"> </i>
+                        About
+                    </ion-item>
+                    <button class="button button-block icon item-icon-left ion-power dark-blue" ng-click="logOut()">        Log out</button>
+
+                </ion-list>
+                </ion-content>
+ 
+ </ion-side-menu>
+ 
+ </ion-side-menus>
+        

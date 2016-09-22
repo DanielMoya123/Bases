@@ -1,0 +1,32 @@
+<ion-view cache-view="false">
+    
+    <ion-header-bar class="dark-red">
+                <ion-item class="item item-icon-left" ng-click="goBack()" style="background-color:#350002; border:0px; color:#ffffff">
+                <i class="icon ion-arrow-left-b"> </i>
+                </ion-item>
+                 <h1 class="title white">My Cart</h1>
+            
+                </ion-header-bar>
+    
+    <ion-content >
+        <input type="search"
+             placeholder="Search for a product..."
+             ng-model="search"
+                ng-bind="search"
+               ng-focus="searchFocused = true"
+             ng-blur="searchFocused = false"
+             ng-change="scrollTop()"
+                class="full-width white-background">
+      <!--<button  ng-if="search.length"  class="button button-icon ion-android-close input-button"  ng-click="clearSearch()"></button>-->
+       <ion-list>           
+          <ion-item  id="{{ item.isLetter ? (item.letter + '_divider') : ''}}" 
+                    ng-class="{'item-divider': item.isLetter}"
+                    ng-repeat="item in getItems(search)">
+            {{item.letter || (item._description+ ': oficina ' +  item._office + ', Stock: ' +item._amount)}}
+            <img ng-if="!item.isLetter" src="img/shopping_cart_minus.png" class="shop-plus" ng-click="eliminateItemCart(item._id)">
+          </ion-item>
+        </ion-list>
+        <button type="button" class="button button-block button-balanced" ng-click="checkOut()"> Check Order</button>
+    </ion-content>
+    
+</ion-view>

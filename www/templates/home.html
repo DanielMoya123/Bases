@@ -1,0 +1,24 @@
+<ion-view view-title="EPATEC">
+    
+    <ion-content >
+        <input type="search"
+             placeholder="Search for a product..."
+             ng-model="search"
+                ng-bind="search"
+               ng-focus="searchFocused = true"
+             ng-blur="searchFocused = false"
+             ng-change="scrollTop()"
+                class="full-width white-background">
+      <!--<button  ng-if="search.length"  class="button button-icon ion-android-close input-button"  ng-click="clearSearch()"></button>-->
+       <ion-list>           
+          <ion-item  id="{{ item.isLetter ? (item.letter + '_divider') : ''}}" 
+                    ng-class="{'item-divider': item.isLetter}"
+                    ng-repeat="item in getItems(search)">
+            {{item.letter || (item._description+ ': oficina ' +  item._office + ', Stock: ' +item._amount)}}
+            <img ng-if="!item.isLetter" src="img/shopping_cart_plus.png" class="shop-plus" ng-click="addItemCart(item._id)">
+          </ion-item>
+        </ion-list>
+        <button class="button button-block icon ion-refresh dark-red" ng-click="update()">Update</button>
+    </ion-content>
+    
+</ion-view>
